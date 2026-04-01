@@ -1,0 +1,50 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #0f172a;
+  background-color: #f8fafc;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.15), transparent 45%), #f8fafc;
+  min-height: 100vh;
+}
+
+.card {
+  @apply rounded-2xl bg-white shadow-soft border border-slate-100;
+}
+
+.input {
+  @apply w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30;
+}
+
+.pill {
+  @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold;
+}
+
+.badge-green {
+  @apply pill bg-emerald-50 text-emerald-700;
+}
+
+.badge-amber {
+  @apply pill bg-amber-50 text-amber-700;
+}
+
+.badge-blue {
+  @apply pill bg-blue-50 text-blue-700;
+}
+
+.badge-slate {
+  @apply pill bg-slate-100 text-slate-700;
+}
+
+.btn-primary {
+  @apply bg-brand-500 text-white hover:bg-brand-600 transition font-semibold rounded-xl px-4 py-2;
+}
+
+.btn-secondary {
+  @apply bg-white text-slate-700 border border-slate-200 hover:border-brand-500 hover:text-brand-600 transition font-semibold rounded-xl px-4 py-2;
+}
