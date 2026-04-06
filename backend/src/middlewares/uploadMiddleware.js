@@ -1,7 +1,10 @@
+import fs from 'fs';
 import path from 'path';
 import multer from 'multer';
 
 const uploadsDir = path.join(process.cwd(), 'uploads');
+// Ensure uploads directory exists in production (Render containers are ephemeral)
+fs.mkdirSync(uploadsDir, { recursive: true });
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, uploadsDir),
   filename: (req, file, cb) => {
