@@ -6,7 +6,14 @@ const uploadsDir = path.join(process.cwd(), 'uploads');
 // Ensure uploads directory exists in production (Render containers are ephemeral)
 fs.mkdirSync(uploadsDir, { recursive: true });
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, uploadsDir),
+  destination: (req, file, cb) => {
+    try {
+      fs.mkdirSync(uploadsDir, { recursive: true });
+      cb(null, uploadsDir);
+    } catch (err) {
+      cb(err);
+    }
+  },
   filename: (req, file, cb) => {
     const safe = file.originalname.replace(/[^a-zA-Z0-9._-]/g, '_');
     cb(null, `${Date.now()}-${safe}`);
